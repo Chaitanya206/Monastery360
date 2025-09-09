@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Monastery360</title>
+  <style>
+    :root {
+      --heritage-red: #8B1E3F;
+      --golden-yellow: #EFB700;
+      --himalayan-green: #2E7D32;
+      --calm-beige: #F4E1D2;
+      --dark-gray: #2C2C2C;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--calm-beige);
+      color: var(--dark-gray);
+      position: relative;
+      border: 15px solid transparent;
+      background-image: linear-gradient(var(--heritage-red), var(--heritage-red)),
+                        linear-gradient(var(--heritage-red), var(--heritage-red)),
+                        linear-gradient(var(--heritage-red), var(--heritage-red)),
+                        linear-gradient(var(--heritage-red), var(--heritage-red));
+      background-repeat: no-repeat;
+      background-size: 100% 15px, 100% 15px, 15px 100%, 15px 100%;
+      background-position: top, bottom, left, right;
+    }
+
+    nav {
+      background-color: var(--heritage-red);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--golden-yellow);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--heritage-red);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .highlight {
+      color: var(--himalayan-green);
+      font-weight: bold;
+    }
+
+    .vision-section, .impact-section {
+      background: rgba(235, 230, 220, 0.6);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 100px; /* adjust size */
+      width: 100px;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: 'Playfair Display', serif; /* your heritage font */
+    }
+
+    footer {
+      background-color: var(--heritage-red);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+  <div class="logo-container">
+    <img src="logo.png" alt="Monastery360 Logo" class="logo-img">
+    <span class="logo-text">Monastery360</span>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="monasteries.html">Monasteries</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+
+  <div class="container">
+    <h1>About Monastery360</h1>
+
+    <div class="vision-section">
+      <h2 class="section-title">Our Vision</h2>
+      <p>
+        <span class="highlight">Monastery360</span> aims to digitally preserve the rich cultural heritage of Sikkim’s monasteries, making them accessible to tourists, researchers, and spiritual seekers across the globe. We believe in combining technology with tradition to create an immersive experience.
+      </p>
+    </div>
+
+    <div class="impact-section">
+      <h2 class="section-title">Our Mission & Impact</h2>
+      <p>
+        Our platform provides <span class="highlight">360° virtual tours</span>, interactive maps, and digital archives of manuscripts and murals. By doing so, we help boost tourism sustainably, preserve endangered cultural artifacts, and educate the world about Sikkim’s spiritual and architectural treasures.
+      </p>
+      <p>
+        We also empower local communities by including them in content creation, storytelling, and digital archiving, ensuring that the heritage remains alive both physically and digitally.
+      </p>
+    </div>
+
+    <div class="impact-section">
+       <h2 class="section-title">Why Monastery360?</h2>
+      <ul>
+        <li>Immersive digital experiences for each monastery.</li>
+        <li>Offline access for remote locations.</li>
+        <li>Integration with local tourism and cultural events.</li>
+        <li>AI-powered search and categorization of historical content.</li>
+        <li>Supports education, research, and spiritual exploration worldwide.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Monastery360 | Immersive Monastery Experience</p>
+  </footer>
+
+</body>
+</html>

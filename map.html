@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sikkim Monastery Map | Monastery360</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #F4E1D2;
+      color: #2C2C2C;
+    }
+    nav {
+      background-color: #8B1E3F;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #EFB700;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 40px; /* adjust size */
+      width: 40px;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: 'Playfair Display', serif; /* your heritage font */
+    }
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+    footer {
+      background-color: #8B1E3F;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+  <div class="logo-container">
+    <img src="logo.png" alt="Monastery360 Logo" class="logo-img">
+    <span class="logo-text">Monastery360</span>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="monasteries.html">Monasteries</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Monastery360 | Mapping Heritage Digitally</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize Map centered on Sikkim
+    var map = L.map('map').setView([27.33, 88.62], 8);
+
+    // Add OpenStreetMap layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Monastery data: [name, lat, lng, info]
+    var monasteries = [
+      ["Rumtek Monastery", 27.3177, 88.6217, "One of the most famous monasteries in Sikkim, rebuilt in the 1960s."],
+      ["Pemayangtse Monastery", 27.2813, 88.2442, "Founded in 1705, it is one of the oldest and most important monasteries."],
+      ["Tashiding Monastery", 27.2836, 88.3628, "Known for the sacred 'Bhumchu' festival and breathtaking views."],
+      ["Enchey Monastery", 27.3419, 88.6138, "A 200-year-old monastery located in Gangtok, surrounded by pine forests."],
+      ["Phodong Monastery", 27.4017, 88.6294, "Built in the early 18th century, rich in murals and architecture."]
+    ];
+
+    // Add markers
+    monasteries.forEach(function(m) {
+      L.marker([m[1], m[2]]).addTo(map)
+        .bindPopup("<b>" + m[0] + "</b><br>" + m[3]);
+    });
+  </script>
+</body>
+</html>
+
