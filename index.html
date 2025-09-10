@@ -17,10 +17,11 @@
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(to bottom, #F4E1D2, #FFF8F0);
-      background-color: var(--calm-beige);
+      background: linear-gradient(135deg, #f0f4f8, #dbeafe, #e0f2fe);
       color: var(--dark-gray);
       line-height: 1.6;
+      border: 12px solid #cbd5e1;
+      border-radius: 15px;
     }
 
     nav {
@@ -30,7 +31,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    nav .logo {
+    nav .logo-text {
       color: white;
       font-size: 1.5rem;
       font-weight: bold;
@@ -62,10 +63,6 @@
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
     .hero .btn {
       background-color: var(--golden-yellow);
       color: var(--dark-gray);
@@ -81,24 +78,140 @@
       background-color: var(--himalayan-green);
       color: white;
     }
-
-    /* History Section */
-    .history {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    
+    footer {
+      background-color: var(--heritage-red);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
     }
-    .history h2 {
+/* History Section */
+.history-section {
+  max-width: 900px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.history-section h2 {
+  text-align: center;
+  color: #800020;
+  margin-bottom: 20px;
+}
+.history-section p {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.stack-container {
+  position: relative;
+  width: 400px;
+  height: 400px;         /* taller so footer doesn’t overlap */
+  margin: 2rem auto;     /* adds breathing space top & bottom */
+  perspective: 1200px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, top 0.4s ease, right 0.4s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  background: white;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;  
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-info {
+  opacity: 1;
+}
+
+/* stack from right to left */
+.card:nth-child(1) { top: 0;   left: 250px; }
+.card:nth-child(2) { top: 40px; left: 100px; }
+.card:nth-child(3) { top: 80px; right: 100px; }
+.card:nth-child(4) { top: 120px; right: 250px; }
+
+/* hover pop effect */
+.card:hover {
+  transform: scale(1.05) rotateY(-10deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--golden-yellow);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
+
+    h1 {
       text-align: center;
       color: var(--heritage-red);
       margin-bottom: 1rem;
     }
-    .history p {
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
       margin-bottom: 1rem;
       text-align: justify;
+    }
+
+    .highlight {
+      color: var(--himalayan-green);
+      font-weight: bold;
+    }
+
+    .vision-section, .impact-section {
+      background: rgba(235, 230, 220, 0.6);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .logo-container {
       display: flex;
@@ -119,17 +232,11 @@
     }
 
 
-    footer {
-      background-color: var(--heritage-red);
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
+
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+<!-- Navbar -->
   <nav>
   <div class="logo-container">
     <img src="logo.png" alt="Monastery360 Logo" class="logo-img">
@@ -143,38 +250,85 @@
   </ul>
 </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Monastery360</h1>
-    <p>Digitizing and Showcasing Sikkim’s Monasteries for Tourism and Cultural Preservation</p>
+    <h3>Digitizing and Showcasing Sikkim’s Monasteries for Tourism and Cultural Preservation</h3>
     <a href="map.html" class="btn">Explore Map</a>
   </section>
 
-  <!-- History Section -->
-  <section class="history">
-    <h2>History of Sikkim’s Monasteries</h2>
-    <p>
-      Sikkim is home to more than 200 monasteries, many of which date back to the 17th and 18th centuries. 
-      These monasteries are not only religious centers but also guardians of art, culture, and history. 
-      Their architecture reflects Tibetan Buddhist traditions and is adorned with intricate murals, sacred scriptures, and symbolic designs.  
-    </p>
-    <p>
-      Rumtek Monastery, one of the most famous, was originally built in the mid-18th century and later reconstructed in the 1960s. 
-      It houses rare manuscripts and serves as a spiritual hub for the Kagyu sect of Buddhism. Other significant monasteries such as 
-      Pemayangtse, Tashiding, and Enchey play a crucial role in Sikkim’s festivals, rituals, and community life.  
-    </p>
-    <p>
-      Despite their importance, many monasteries remain inaccessible to the wider world, and their treasures are at risk of fading with time. 
-      By digitizing and showcasing these sacred spaces, we can preserve them for future generations while inviting tourists, researchers, and 
-      spiritual seekers to experience the cultural wealth of Sikkim.  
-    </p>
-  </section>
+ <!-- History Section -->
+<section class="history-section">
+  <h2>History of Sikkim’s Monasteries</h2>
+  <p>Sikkim is home to more than 200 monasteries, many of which date back to the 17th and 18th centuries. 
+  These monasteries are not only religious centers but also guardians of art, culture, and history. 
+  Their architecture reflects Tibetan Buddhist traditions and is adorned with intricate murals, sacred scriptures, and symbolic designs.</p>
+
+  <p>Rumtek Monastery, one of the most famous, was originally built in the mid-18th century and later reconstructed in the 1960s. 
+  It houses rare manuscripts and serves as a spiritual hub for the Kagyu sect of Buddhism. 
+  Other significant monasteries such as Pemayangtse, Tashiding, and Enchey play a crucial role in Sikkim’s festivals, rituals, and community life.</p>
+
+  <p>Despite their importance, many monasteries remain inaccessible to the wider world, and their treasures are at risk of fading with time. 
+  By digitizing and showcasing these sacred spaces, we can preserve them for future generations while inviting tourists, researchers, 
+  and spiritual seekers to experience the cultural wealth of Sikkim.</p>
+</section>
+
+<!-- Stacked Monasteries Section -->
+<section class="stack-container">
+  <div class="card" onclick="location.href='monasteries.html#rumtek'">
+    <img src="images/Rumtek.webp" alt="Rumtek Monastery">
+    <div class="card-info">Rumtek Monastery</div>
+  </div>
+
+  <div class="card" onclick="location.href='monasteries.html#pemayangtse'">
+    <img src="images/pemayangtse.jpg" alt="Pemayangtse Monastery">
+    <div class="card-info">Pemayangtse Monastery</div>
+  </div>
+
+  <div class="card" onclick="location.href='monasteries.html#tashiding'">
+    <img src="images/tashiding.webp" alt="Tashiding Monastery">
+    <div class="card-info">Tashiding Monastery</div>
+  </div>
+
+  <div class="card" onclick="location.href='monasteries.html#enchey'">
+    <img src="images/enchey.webp" alt="Enchey Monastery">
+    <div class="card-info">Enchey Monastery</div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>
     <p>© 2025 Monastery360 | Preserving the past, inspiring the future.</p>
   </footer>
+
+  <script>
+    document.querySelectorAll(".stack-card").forEach(card => {
+      const baseTransform = card.style.transform || getComputedStyle(card).transform;
+
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 10;
+        const rotateY = ((x - centerX) / centerX) * -10;
+
+        card.style.transform = `${baseTransform} rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = baseTransform;
+      });
+    });
+ // Flip effect on click
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("flipped");
+  });
+});
+
+  </script>
 </body>
 </html>
-
-
